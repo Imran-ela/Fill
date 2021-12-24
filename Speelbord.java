@@ -37,7 +37,7 @@ public class Speelbord {
     private boolean isAllowedMove(Move move){
         if(this.laatsteZet == null) return true; // nog geen moves gemaakt dus altijd allowed.
 
-        boolean reedsGespeeld = !List.of(this.laatsteZetten).contains(move);
+        boolean reedsGespeeld = !List.of(this.laatsteZetten).contains(move);// gebruikt de equals method van Move
         boolean naastLaatsteZet = move.isNaast(this.laatsteZet);
         return reedsGespeeld && naastLaatsteZet;
     }
@@ -50,6 +50,8 @@ public class Speelbord {
             this.laatsteZetten.add(move);
             return true;
         }
+        if(!(this.isAllowedMove(move))) System.out.println("Dit is een verkeerde zet");
+
         return false;
     }
 
@@ -77,7 +79,7 @@ public class Speelbord {
             }
         }
         return false;
-    }
+    }// deze versie mag ook weg (wordt niet gebruikt)
 
     boolean isVol() {
         return this.teller == BREEDTE * (HOOGTE);

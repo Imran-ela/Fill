@@ -58,9 +58,9 @@ public class Speler {
         int rij;
 
         while (!plaats) {
-            System.out.println("welke rij?(0,1,2)");
+            System.out.println("welke rij?(0,1,2)(van bove naar beneden)");
             kolom = keyboard.nextInt();
-            System.out.println("welke kolom?(0,1,2)");
+            System.out.println("welke kolom?(0,1,2)(van rechts naar links)");
             rij = keyboard.nextInt();
             //plaats = bord.maakZet(new Zet(color), kolom, rij);
             plaats = bord.maakZetJuiste((new Zet(color)), new Move(kolom, rij));

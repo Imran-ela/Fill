@@ -1,6 +1,6 @@
 package fill;
 
-public class Zet {
+public class Zet {//naam van zet moet nog veranderd worden naar iets toepasselijker
     public static Color color;
     //private Move vorigeMove;
     private Move move;
