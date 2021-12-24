@@ -2,6 +2,8 @@ package fill;
 
 public class Zet {
     public static Color color;
+    //private Move vorigeMove;
+    private Move move;
 
     public Zet(Color color) {
         this.color = color;

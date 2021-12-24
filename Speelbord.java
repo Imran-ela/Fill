@@ -42,7 +42,7 @@ public class Speelbord {
         return reedsGespeeld && naastLaatsteZet;
     }
 
-    public boolean maakZetJeroen(Zet zet, Move move){
+    public boolean maakZetJuiste(Zet zet, Move move){//maakZetJuiste genoemd omdat dit de goede is
         if(this.isAllowedMove(move)){
             this.zetten[move.rij][move.kolom] = zet;
             this.teller++;
@@ -53,13 +53,9 @@ public class Speelbord {
         return false;
     }
 
-    public boolean maakZet(Zet zet, int kolom, int rij) { //zorgt dat de x op een bepaalde plaats komt
+    public boolean maakZet(Zet zet, int kolom, int rij) { //zorgt dat de x op een bepaalde plaats komt (oude versie)
         int[] laatsteRij = new int[10];
         int[] laatsetKolom = new int[10];
-
-
-
-
         for (int i = 0; i < 10; i++) {
             if (this.zetten[rij][kolom] == null) {
 
@@ -80,12 +76,7 @@ public class Speelbord {
 
             }
         }
-
-
-
         return false;
-
-
     }
 
     boolean isVol() {

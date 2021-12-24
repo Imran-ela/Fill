@@ -15,7 +15,7 @@ public class Move {
         int kolDiff = Math.abs(move.kolom - this.kolom);
         return (rijDiff == 1 ^ kolDiff == 1) && rijDiff + kolDiff == 1;
 
-        //return  == 1 ^  == 1; //^ betekent dat er MAAR 1 juist mag zijn, exclusive or, diagonalen checken
+        //^ betekent dat er MAAR 1 juist mag zijn, exclusive or, diagonalen checken
     }
 
     @Override

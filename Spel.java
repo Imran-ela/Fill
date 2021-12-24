@@ -4,7 +4,7 @@ package fill;
 
 public class Spel {
     private Speler speler;
-    private Level level;
+
     private Speelbord bord;
 
     public Spel() {
@@ -21,7 +21,7 @@ public class Spel {
 
         }while (!bord.isVol());
         if (bord.isVol()) {
-            System.out.println("you won");
+            System.out.println("You won");
         }
 
     }
@@ -36,7 +36,7 @@ public class Spel {
     public String toString() {
         return "Spel{" +
                 "speler=" + speler +
-                ", level=" + level +
+
                 '}';
     }
 }

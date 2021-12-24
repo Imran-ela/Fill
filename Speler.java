@@ -63,7 +63,7 @@ public class Speler {
             System.out.println("welke kolom?(0,1,2)");
             rij = keyboard.nextInt();
             //plaats = bord.maakZet(new Zet(color), kolom, rij);
-            plaats = bord.maakZetJeroen((new Zet(color)), new Move(kolom, rij));
+            plaats = bord.maakZetJuiste((new Zet(color)), new Move(kolom, rij));
         }
     }
 }
