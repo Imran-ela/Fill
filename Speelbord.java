@@ -37,7 +37,7 @@ public class Speelbord {
     private boolean isAllowedMove(Move move){
         if(this.laatsteZet == null) return true; // nog geen moves gemaakt dus altijd allowed.
 
-        boolean reedsGespeeld = !Arrays.asList(this.laatsteZetten).contains(move);
+        boolean reedsGespeeld = !List.of(this.laatsteZetten).contains(move);
         boolean naastLaatsteZet = move.isNaast(this.laatsteZet);
         return reedsGespeeld && naastLaatsteZet;
     }
