@@ -58,11 +58,12 @@ public class Speler {
         int rij;
 
         while (!plaats) {
-            System.out.println("welke kolom?(0,1,2)");
-            kolom = keyboard.nextInt();
             System.out.println("welke rij?(0,1,2)");
+            kolom = keyboard.nextInt();
+            System.out.println("welke kolom?(0,1,2)");
             rij = keyboard.nextInt();
-            plaats = bord.maakZet(new Zet(color), kolom, rij);
+            //plaats = bord.maakZet(new Zet(color), kolom, rij);
+            plaats = bord.maakZetJeroen((new Zet(color)), new Move(kolom, rij));
         }
     }
 }

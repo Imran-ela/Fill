@@ -1,6 +1,7 @@
 package fill;
 
-import java.util.Scanner;
+import java.util.*;
+
 
 public class Speelbord {
     private boolean contact;
@@ -8,6 +9,8 @@ public class Speelbord {
     public static final int BREEDTE = 3;
     public static final int HOOGTE = 3;
     private Zet[][] zetten;
+    private Move laatsteZet;
+    private List<Move> laatsteZetten = new ArrayList<Move>();
     private int teller;
 
     public Speelbord() {
@@ -31,18 +34,40 @@ public class Speelbord {
         return printBord.toString();
     }
 
+    private boolean isAllowedMove(Move move){
+        if(this.laatsteZet == null) return true; // nog geen moves gemaakt dus altijd allowed.
+
+        boolean reedsGespeeld = !Arrays.asList(this.laatsteZetten).contains(move);
+        boolean naastLaatsteZet = move.isNaast(this.laatsteZet);
+        return reedsGespeeld && naastLaatsteZet;
+    }
+
+    public boolean maakZetJeroen(Zet zet, Move move){
+        if(this.isAllowedMove(move)){
+            this.zetten[move.rij][move.kolom] = zet;
+            this.teller++;
+            this.laatsteZet = move;
+            this.laatsteZetten.add(move);
+            return true;
+        }
+        return false;
+    }
+
     public boolean maakZet(Zet zet, int kolom, int rij) { //zorgt dat de x op een bepaalde plaats komt
         int[] laatsteRij = new int[10];
         int[] laatsetKolom = new int[10];
-        for (int i = 0; i < 9; i++) {
+
+
+
+
+        for (int i = 0; i < 10; i++) {
             if (this.zetten[rij][kolom] == null) {
 
                 if (laatsetKolom[i] == 0 && laatsteRij[i] == 0) {
                     if (laatsetKolom[i] + 1 < kolom || laatsteRij[i] + 1 < rij){
                         System.out.println("verkeerde zet");
                         break;
-                    }
-                    else{
+                    } else {
                         this.zetten[rij][kolom] = zet;
                         this.teller++;
                         laatsetKolom[i] = kolom;
@@ -55,7 +80,12 @@ public class Speelbord {
 
             }
         }
+
+
+
         return false;
+
+
     }
 
     boolean isVol() {
