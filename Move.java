@@ -13,7 +13,8 @@ public class Move {
     public boolean isNaast(Move move){
         int rijDiff = Math.abs(move.rij - this.rij);
         int kolDiff = Math.abs(move.kolom - this.kolom);
-        return (rijDiff == 1 ^ kolDiff == 1) && rijDiff + kolDiff == 1;
+        return (rijDiff == 1 ^ kolDiff == 1) && rijDiff + kolDiff == 1;//dit moet gelijk zijn aan 1 omdat er een van de twee nul
+        //moet zijn, anders krijgen we te maken met illegale diagonale zetten.
 
         //^ betekent dat er MAAR 1 juist mag zijn, exclusive or, diagonalen checken
     }
