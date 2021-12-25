@@ -16,13 +16,11 @@ public class Spel {
         System.out.println(bord.toString());
         do {
             speler.play(bord);
-
             System.out.println(bord.toString());
-
         }while (!bord.isVol());
-        if (bord.isVol()) {
-            System.out.println("You won");
-        }
+
+        if (bord.isVol()) System.out.println("You won");
+
 
     }
     public void selecteerLevel() {
@@ -35,8 +33,6 @@ public class Spel {
     @Override
     public String toString() {
         return "Spel{" +
-                "speler=" + speler +
-
-                '}';
+                "speler=" + speler + '}';
     }
 }

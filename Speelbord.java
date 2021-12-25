@@ -10,7 +10,7 @@ public class Speelbord {
     public static final int HOOGTE = 3;
     private Zet[][] zetten;
     private Move laatsteZet;
-    private List<Move> laatsteZetten = new ArrayList<Move>();
+    private List<Move> laatsteZetten = new ArrayList<>();
     private int teller;
 
     public Speelbord() {
