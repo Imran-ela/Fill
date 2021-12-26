@@ -42,7 +42,7 @@ public class Speelbord {
         return reedsGespeeld && naastLaatsteZet;
     }
 
-    public boolean maakZetJuiste(Zet zet, Move move){//maakZetJuiste genoemd omdat dit de goede is
+    public boolean maakZet(Zet zet, Move move){//maakZetJuiste genoemd omdat dit de goede is
         if(this.isAllowedMove(move)){
             this.zetten[move.rij][move.kolom] = zet;
             this.teller++;
@@ -54,32 +54,12 @@ public class Speelbord {
 
         return false;
     }
+    public void maakBordLeeg(){//werkt nog niet volledig, het bord wordt wel leeg gemaakt maar de zetten zijn niet correct leeg gemaakt
+        this.zetten =new Zet[BREEDTE][ HOOGTE];
+        laatsteZetten.removeAll(this.laatsteZetten);
+        laatsteZetten.clear();
 
-    public boolean maakZet(Zet zet, int kolom, int rij) { //zorgt dat de x op een bepaalde plaats komt (oude versie)
-        int[] laatsteRij = new int[10];
-        int[] laatsetKolom = new int[10];
-        for (int i = 0; i < 10; i++) {
-            if (this.zetten[rij][kolom] == null) {
-
-                if (laatsetKolom[i] == 0 && laatsteRij[i] == 0) {
-                    if (laatsetKolom[i] + 1 < kolom || laatsteRij[i] + 1 < rij){
-                        System.out.println("verkeerde zet");
-                        break;
-                    } else {
-                        this.zetten[rij][kolom] = zet;
-                        this.teller++;
-                        laatsetKolom[i] = kolom;
-                        laatsteRij[i] = rij;
-                        return true;
-                    }
-                } else if (laatsetKolom[i] + 1 > kolom && laatsteRij[i] + 1 > rij) {
-                    System.out.println("verkeerde zet");
-                }
-
-            }
-        }
-        return false;
-    }// deze versie mag ook weg (wordt niet gebruikt)
+    }
 
     boolean isVol() {
         return this.teller == BREEDTE * (HOOGTE);
